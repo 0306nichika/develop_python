@@ -1,0 +1,14 @@
+<!--ベーステンプレートを通用する-->
+{% extends 'base.html' %}
+<!--ヘッダー情報のページタイトルを設定する-->
+{% block title %}落とし物_ギャラリー{% endblock %}
+
+    {% block contents %}
+
+    <!--タイトルテンプレートの組み込み-->
+    {% include "photos_title.html" %}
+
+    <!--投稿一覧テンプレートの組み込み-->
+    {% include "photos_list.html" %}
+
+    {% endblock %}
