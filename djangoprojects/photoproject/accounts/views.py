@@ -9,7 +9,7 @@ class SignUpView(CreateView):
     '''
     from_class = customUserCreationForm
     template_name ="signup.html"
-    success_url = reverse_lazy('accouynts:signup_success')
+    success_url = reverse_lazy('accounts:signup_success')
  
     def from_valid(self, form):
         '''CreateViewクラスのfrom_valid()をオーバーライド
