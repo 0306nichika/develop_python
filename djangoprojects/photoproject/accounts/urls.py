@@ -12,7 +12,7 @@ urlpatterns = [
     path('signup/',
          views.SignUpView.as_view(),
          name = 'signup',
-    )
+    ),
     
     #サインアップ完了ページのビューを呼び出し
     # [http(s)://<ホスト名>/signup_success/]へのアクセスに対し
