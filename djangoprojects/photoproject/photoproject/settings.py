@@ -126,4 +126,4 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 #DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Userモデルの代わりに代わりにcustomUserモデルを使用する
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.customUser'
