@@ -24,12 +24,12 @@
                             {{ field }}
                             <!--help_textを出力-->
                             {% if field.help_text %}
-                                <small style = "color:gray">{{field.help_text}}</small>
-                            {% endif %}
-                            <!--エラー発生時テキストerrors-->
-                            {% for error in field.errors %}
-                                <p style="color: red">{{error}}</p>
-                            {% endfor %}
+                                <small style = "color:gray">{{ field.help_text }}</small>
+                                {% endif %}
+                                <!--エラー発生時テキストerrors-->
+                                {% for error in field.errors %}
+                                    <p style="color: red">{{error}}</p>
+                                {% endfor %}
                         </p>
                         {% endfor %}
                         <p style="color: red">
