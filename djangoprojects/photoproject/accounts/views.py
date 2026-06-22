@@ -3,7 +3,7 @@ from django.views.generic import CreateView, TemplateView
 from .forms import customUserCreationForm
 from django.urls import reverse_lazy
  
-class SingnUpView(CreateView):
+class SignUpView(CreateView):
     '''サインアップのビュー
  
     '''
