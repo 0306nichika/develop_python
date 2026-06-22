@@ -7,11 +7,11 @@ class SignUpView(CreateView):
     '''サインアップのビュー
  
     '''
-    from_class = customUserCreationForm
+    form_class = customUserCreationForm
     template_name ="signup.html"
     success_url = reverse_lazy('accounts:signup_success')
  
-    def from_valid(self, form):
+    def form_valid(self, form):
         '''CreateViewクラスのfrom_valid()をオーバーライド
         フォームのバリデーションを通過したときに呼ばれる
         フォームのデータの登録を行う
