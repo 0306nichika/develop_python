@@ -3,13 +3,13 @@ from django.views.generic import CreateView, TemplateView
 from .forms import customUserCreationForm
 from django.urls import reverse_lazy
  
-class SingnUpView(CreateView):
+class SignUpView(CreateView):
     '''サインアップのビュー
  
     '''
     from_class = customUserCreationForm
     template_name ="signup.html"
-    success_url = reverse_lazy('accouynts:signup_success')
+    success_url = reverse_lazy('accounts:signup_success')
  
     def from_valid(self, form):
         '''CreateViewクラスのfrom_valid()をオーバーライド
