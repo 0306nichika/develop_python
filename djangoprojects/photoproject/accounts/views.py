@@ -32,6 +32,7 @@ class SignUpView(CreateView):
         user = form.save()
         self.object = user
         return super().form_valid(form)
+    
 class SignUpSuccessView(TemplateView):
     '''サインアップ完了ページのビュー
     '''
