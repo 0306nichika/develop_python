@@ -21,4 +21,7 @@ urlpatterns = [
 
     #photo.urlsへのURLパターン
     path('', include('photo.urls')),
+    
+    # accounts.urlへのURLパターン
+    path('',include('accounts.urls')),
 ]
