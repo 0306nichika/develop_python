@@ -3,9 +3,10 @@
 <!--ヘッダー情報のページタイトルを設定する-->
 {% block title %}Sign up{% endblock %}
 
-        {% block contents %}
+        {% block content %}
         <!--Bootstrapのグリッドシステム-->
         <hr>
+        <p>出る？</p>
         <div class = "container">
             <!--行を配置-->
             <div class = "row">
@@ -13,7 +14,7 @@
                 <div class = "col offset-2">
                     <h3>サインアップ</h3>
                     <!--サインアップのフォームを配置-->
-                    <from method = "post">
+                    <form method = "post">
                         {% csrf_token %}
                         <!--formからフィールドを取り出す-->
                         {% for field in form %}
@@ -27,17 +28,17 @@
                                 <small style = "color:gray">{{ field.help_text }}</small>
                                 {% endif %}
                                 <!--エラー発生時テキストerrors-->
-                                {% for error in field.error %}
-                                    <p style="color: red">{{ error }}</p>
+                                {% for error in field.errors %}
+                                    <p style="color: red">{{error}}</p>
                                 {% endfor %}
                         </p>
-                        {% endfor}
+                        {% endfor %}
                         <p style="color: red">
                             ※メールアドレスはパスワードをリセットする際に必要になりますので、登録をお願いします。
                         </p>
                         <!--Sign up ボタンを出力-->
                         <input type = "submit" value="Sign up">
-                    </from>
+                    </form>
                     <!--トップページのリンクテキスト-->
                     <br>
                     <p><a href="{% url 'photo:index' %}">

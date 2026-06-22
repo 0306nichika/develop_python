@@ -7,9 +7,15 @@ class SignUpView(CreateView):
     '''サインアップのビュー
  
     '''
+    # form_class = customUserCreationForm
+    # template_name ="signup.html"
+    # success_url = reverse_lazy('accouynts:signup_success')
+
+    
     form_class = customUserCreationForm
-    template_name ="signup.html"
+    template_name = 'signup.html'
     success_url = reverse_lazy('accounts:signup_success')
+
  
     def form_valid(self, form):
         '''CreateViewクラスのfrom_valid()をオーバーライド
