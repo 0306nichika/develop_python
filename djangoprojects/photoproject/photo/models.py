@@ -56,7 +56,7 @@ class PhotoPost(models.Model):
         blank=True,
         null=True
     )
-    posted_add = models.DateTimeField(
+    posted_at = models.DateTimeField(
         verbose_name='投稿日時',
         auto_now_add=True
     )
