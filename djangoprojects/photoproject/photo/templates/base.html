@@ -60,7 +60,7 @@
             <li><a href="mailto:admin@example.com" class="text-white">Email me</a></li>
             {% else %}
             <li><a href="{% url 'accounts:signup' %}" class="text-white">サインアップ</a></li>
-            <li><a href="#" class="text-white">ログイン</a></li>
+            <li><a href="{% url 'accounts:login' %}" class="text-white" class="text-white">ログイン</a></li>
             <li><a href="#" class="text-white">Email me</a></li>
             {% endif %}
           </ul>
