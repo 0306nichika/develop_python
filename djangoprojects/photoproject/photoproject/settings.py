@@ -127,3 +127,14 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 #Userモデルの代わりに代わりにcustomUserモデルを使用する
 AUTH_USER_MODEL = 'accounts.customUser'
+
+#メール送信のためのクラス設定
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackends'
+
+#メールサーバーへの接続設定
+DEFAULT_FROM_EMAIL = 'xxxxxxx@gmail.com' 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'xxxx@gmail.com' 
+EMAIL_HOST_PASSWORD = 'xxxxxxxxxxxxxxx'
+EMAIL_USE_TLS = True
