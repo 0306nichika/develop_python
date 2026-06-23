@@ -12,8 +12,14 @@
         </p>
         <p>
           <!--ナビゲーションボタン-->
+          {% if user.is_authenticated %}
+          <!--ログイン中ボタン-->
+          <a href="#" class="btn btn-primary my-2">投稿する</a>
+          <a href="{% url 'accounts:logout' %}">ログアウト</a>
+          {% else %}
           <a href="#" class="btn btn-primary my-2">今すぐサインアップ</a>
           <a href="#" class="btn btn-secondary my-2">登録済みの方はログイン</a>
+          {% endif %}
         </p>
       </div>
     </div>
