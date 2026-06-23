@@ -1,6 +1,8 @@
 from django.urls import path
 # viewsモジュールをインポート
 from . import views
+# viewsをインポートしてauth_viewという名前で利用する
+from django.contrib.auth import views as auth_views
 # URLパターンを逆引きできるように名前を付ける
 app_name = 'accounts'
 
