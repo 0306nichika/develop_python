@@ -22,6 +22,24 @@ urlpatterns = [
     path('signup_success/',
          views.SignUpSuccessView.as_view(),
          name = 'signup_success',
-    )
-]
+    ),
 
+    # ログインページの表示
+    # [http(s)://<ホスト名>/signup/]へのアクセスに対し
+    # django.contrub.auth.views.LoginViewをインスタンス化して
+    # ログインページを表示する
+    path('login/',
+         # ログイン用テンプレート（フォーム）をレンダリング
+         auth_views.LoginView.as_view(template_name='login.html'),
+         name = 'login'
+         ),
+     
+     # ログアウトを実行
+     # [http(s)://<ホスト名>/logout/]へのアクセスに対して
+     # django.contrub.auth.views.LogoutViewをインスタンス化して
+     # ログアウトさせる
+     path('logout/',
+          auth_views.LogoutView.as_view(template_name='logout.html'),
+          name = 'logout',
+          )
+]
