@@ -55,12 +55,17 @@
             <!--ナビゲーションメニュー-->
             {% if user.is_authenticated %}
             <li><a href="#" class="text-white">マイページ</a></li>
+<<<<<<< HEAD
+            <li><a href="{% url 'accounts:logout' %}" class="text-white">ログアウト</a></li>
+            <li><a href="{% url 'accounts:password_reset'%}" class="text-white">パスワードのリセット</a></li>
+=======
             <li><a href="{% url 'accounts:logout' %}"></a>ログアウト</li>
             <li><a href="{% url 'password_reset' %}" class="text-white"></a>パスワードのリセット</li>
+>>>>>>> main
             <li><a href="mailto:admin@example.com" class="text-white">Email me</a></li>
             {% else %}
             <li><a href="{% url 'accounts:signup' %}" class="text-white">サインアップ</a></li>
-            <li><a href="{% url 'accounts:login' %}" class="text-white" class="text-white">ログイン</a></li>
+            <li><a href="{% url 'accounts:login' %}" class="text-white">ログイン</a></li>
             <li><a href="#" class="text-white">Email me</a></li>
             {% endif %}
           </ul>
