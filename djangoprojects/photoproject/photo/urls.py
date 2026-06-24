@@ -9,5 +9,5 @@ urlpatterns = [
     # PhotoアプリへのアクセスはviewモジュールのIndexViewを実行
     path('', views.IndexView.as_view(), name = 'index'),
     # 写真投稿ページへのアクセスはviewsモジュールのCreatePhotoViewを実行
-    path('post/',views.CreatePhotoView.as_View(),name='post'),
+    path('post/',views.CreatePhotoView.as_view(),name='post'),
 ]
