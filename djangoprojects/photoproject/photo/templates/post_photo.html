@@ -22,7 +22,11 @@
                         </tr>
                         <tr>
                             <th>タイトル</th>
-                            <td>{{ form.comment}}</td>
+                            <td>{{ form.title}}</td>
+                        </tr>
+                        <tr>
+                            <th>コメント</th>
+                            <td>{{ form.comment|safe}}</td>
                         </tr>
                         <tr>
                             <th>画像1</th>
