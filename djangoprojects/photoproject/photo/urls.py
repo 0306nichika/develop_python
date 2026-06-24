@@ -18,6 +18,7 @@ urlpatterns = [
     path('photos/<int:category>/',views.CategoryView.as_view(),name = 'photos_映画ポスター'),
     path('user-list/<int:user>',views.UserView.as_view(),name = 'user_list'),
     path('like/', views.like, name='like'),
-    path('photo/<int:pk>/delete',views.PhotoDeleteView(),name = 'photo_delete'),
+    path('photo/<int:pk>/', views.PhotoDetailView.as_view(), name='photo_detail'),
+    path('photo/<int:pk>/delete', views.PhotoDeleteView.as_view(), name='photo_delete'),
 
 ]

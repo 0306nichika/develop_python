@@ -17,6 +17,7 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView
+from django.views.generic import DeleteView
 
 import random
 
@@ -86,7 +87,10 @@ class CategoryView(ListView):
             category =category_id).order_by('-posted_at')
         return categories
 
-
+class PhotoDeleteView(DeleteView):
+    model=PhotoPost
+    template_name='photo_delete.html'
+    success_url=reverse_lazy('photo:mypage')
 FILE = "data/likes.json"
 
 @csrf_exempt
