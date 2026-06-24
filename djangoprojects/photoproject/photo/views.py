@@ -68,6 +68,20 @@ class CreatePhotoView(CreateView):
 class PostSuccessView(TemplateView):
     template_name='post_success.html'
 
+class CategoryView(ListView):
+    '''カテゴリページのビュー
+    Attributes:
+        template_name:レンダリングするテンプレート
+        paginate_by:1ページに表示するれーこーどの件数
+    '''
+    template_name ='index.html'
+    paginate_by = 9
+
+    def get_queryset(self):
+        category_id = self.kwargs['category']
+        categories = PhotoPost.objects.filter(
+            category =category_id).order_by('-posted_at')
+        return categories
 
 
 FILE = "data/likes.json"
