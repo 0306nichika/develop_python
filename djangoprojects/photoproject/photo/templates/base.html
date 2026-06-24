@@ -92,7 +92,17 @@
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p><!--フッターのテキストを任意のものに置き換え-->
+    <p id="message"></p>
+    <script>
+      const now = new Date();
+      
+      const hour = now.getHours();
 
+      if (hour >= 15) {
+      document.getElementById("message").textContent = "Are you free? Go work!";
+      }
+
+    </script>
     <p class="mb-1">Photo Gallery is &copy; Bootstrap, but please a lot!</p>
   </div>
 </footer>
