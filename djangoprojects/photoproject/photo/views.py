@@ -16,6 +16,7 @@ from .models import PhotoPost
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import DetailView
 
 # Create your views here.
 class IndexView(ListView):
@@ -113,4 +114,18 @@ def like(request):
             "likeCount": len(likes[post_id])
         })
 
-        
+class UserView(ListView):
+    template_name = 'index.html'
+    paginate_by = 9
+
+    def get_queryset(self):
+        user_id = self.kwargs['user']
+        user_list = PhotoPost.objects.filter(
+            user = user_id).order_by('-posted_at')
+        return user_list
+
+
+
+class PhotoDetailView(DetailView):
+    model = PhotoPost
+    template_name = 'photo_detail.html'
