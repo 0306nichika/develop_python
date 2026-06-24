@@ -15,7 +15,7 @@ urlpatterns = [
     path('post_done/',views.PostSuccessView.as_view(),name="post_done"),
 
     path('photos/<int:category>/',views.CategoryView.as_view(),name = 'photos_映画ポスター'),
-    
+    path('user-list/<int:user>',views.UserView.as_view(),name = 'user_list'),
     path('like/', views.like, name='like'),
-
+    path('photo/<int:pk>/', views.PhotoDetailView.as_view(), name='photo_detail'),
 ]
