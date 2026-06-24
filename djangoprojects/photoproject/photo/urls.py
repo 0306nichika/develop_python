@@ -13,5 +13,6 @@ urlpatterns = [
     # 写真投稿ページへのアクセスはviewsモジュールのCreatePhotoViewを実行
     path('post/',views.CreatePhotoView.as_view(),name='post'),
     path('post_done/',views.PostSuccessView.as_view(),name="post_done"),
-    path("like", like),
+
+    path('photos/<int:category>/',views.CategoryView.as_view(),name = 'photos_映画ポスター'),
 ]
