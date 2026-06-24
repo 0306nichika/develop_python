@@ -12,11 +12,14 @@ from django.utils.decorators import method_decorator
 
 from django.contrib.auth.decorators import login_required
 
+from .models import PhotoPost
+
 # Create your views here.
 class IndexView(TemplateView):
     '''トップページビュー
     '''
     template_name = 'index.html'
+    queryset = PhotoPost.objects.order_by('-posted_at')
 
 @method_decorator(login_required, name='dispatch')
 class CreatePhotoView(CreateView):
@@ -60,5 +63,5 @@ class CreatePhotoView(CreateView):
 
 class PostSuccessView(TemplateView):
     template_name='post_success.html'
-    
+
         
