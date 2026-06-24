@@ -17,12 +17,24 @@
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">{{record.category.title}}</button>
                 </div>
-                <small class="text-muted">{{record.user.username}}</small>
+                
+              <div>
+                <button class="btn btn-sm btn-outline-danger"
+                        onclick="likePost('{{ record.id }}')">
+                  ❤️
+                </button>
+                <span id="like-count-{{ record.id }}">0</span>
               </div>
+
+              </div>
+
+                <small class="text-muted">{{record.user.username}}</small>
             </div>
-            {% endfor %}
+          </div>
+            
           </div>
         </div>
+        {% endfor %}
       </div>
     </div>
   </div>

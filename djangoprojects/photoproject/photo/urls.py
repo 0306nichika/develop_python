@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from .views import like
+
 
 #URLパターンを逆引きできるように名前を付ける
 app_name = 'photo'
@@ -10,5 +12,6 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name = 'index'),
     # 写真投稿ページへのアクセスはviewsモジュールのCreatePhotoViewを実行
     path('post/',views.CreatePhotoView.as_view(),name='post'),
-    path('post_done/',views.PostSuccessView.as_view(),name="post_done")
+    path('post_done/',views.PostSuccessView.as_view(),name="post_done"),
+    path("like", like),
 ]
