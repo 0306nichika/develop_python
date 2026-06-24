@@ -2,7 +2,7 @@
 function likePost(postId) {
   const userId = localStorage.getItem("userId") || "user1";
 
-  fetch("/like", {
+  fetch("/like/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
