@@ -52,5 +52,5 @@ path('reset/done/',
 ]
 urlpatterns += static(
     settings.MEDIA_URL,
-    document_root=settings.MEDEI_ROOT,
+    document_root=settings.MEDIA_ROOT,
 )

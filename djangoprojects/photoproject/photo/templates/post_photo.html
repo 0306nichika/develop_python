@@ -12,8 +12,11 @@
             <!--列の左右に余白offset-4を入れる。列の上下パティングpy-4-->
             <div class="col offset-2">
 
-                <form method = "POST"
-                    enctype="multipart/form-data">
+                
+                <form method="POST"
+                    enctype="multipart/form-data"
+                    autocomplete="off">
+
                     {% csrf_token %}
                     <table>
                         <tr>
