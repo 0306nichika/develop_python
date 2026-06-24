@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 #auth.viewをインポートしてauth_viewという名前で利用する
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,3 +50,7 @@ path('reset/done/',
          template_name = "password_reset_done.html"),
     name = 'password_reset_complete'),
 ]
+urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDEI_ROOT,
+)
