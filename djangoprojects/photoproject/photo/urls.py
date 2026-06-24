@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from .views import like
+
 
 #URLパターンを逆引きできるように名前を付ける
 app_name = 'photo'

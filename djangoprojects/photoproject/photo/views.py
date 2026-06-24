@@ -13,6 +13,9 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 from .models import PhotoPost
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 class IndexView(ListView):
@@ -79,3 +82,35 @@ class CategoryView(ListView):
         categories = PhotoPost.objects.filter(
             category =category_id).order_by('-posted_at')
         return categories
+
+
+FILE = "data/likes.json"
+
+@csrf_exempt
+def like(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+
+        post_id = data["postId"]
+        user_id = data["userId"]
+
+        try:
+            with open(FILE) as f:
+                likes = json.load(f)
+        except:
+            likes = {}
+
+        if post_id not in likes:
+            likes[post_id] = []
+
+        if user_id not in likes[post_id]:
+            likes[post_id].append(user_id)
+
+        with open(FILE, "w") as f:
+            json.dump(likes, f)
+
+        return JsonResponse({
+            "likeCount": len(likes[post_id])
+        })
+
+        
