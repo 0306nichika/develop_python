@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from .views import like
+from django.views.generic import DeleteView
 
 
 #URLパターンを逆引きできるように名前を付ける
@@ -17,5 +18,6 @@ urlpatterns = [
     path('photos/<int:category>/',views.CategoryView.as_view(),name = 'photos_映画ポスター'),
     path('user-list/<int:user>',views.UserView.as_view(),name = 'user_list'),
     path('like/', views.like, name='like'),
-    path('photo/<int:pk>/', views.PhotoDetailView.as_view(), name='photo_detail'),
+    path('photo/<int:pk>/delete',views.PhotoDeleteView(),name = 'photo_delete'),
+
 ]
