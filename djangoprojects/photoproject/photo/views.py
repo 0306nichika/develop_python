@@ -18,6 +18,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import DetailView
 
+import random
+
 # Create your views here.
 class IndexView(ListView):
     '''トップページビュー
@@ -103,8 +105,18 @@ def like(request):
 
         if post_id not in likes:
             likes[post_id] = []
+            
+        # 10%の確率で失敗
+        if random.random() < 0.1:
+            return JsonResponse({
+                "likeCount": len(likes[post_id]),
+                "status": "fail"
+            })
 
-        if user_id not in likes[post_id]:
+
+        if user_id in likes[post_id]:
+            likes[post_id].remove(user_id)
+        else:
             likes[post_id].append(user_id)
 
         with open(FILE, "w") as f:
