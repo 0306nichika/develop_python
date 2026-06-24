@@ -11,7 +11,6 @@ class PhotoPostForm(ModelForm):
             model: モデルクラス
             fields: フォームで使用するモデルのフィールドを設定
         '''
-
-    model = PhotoPost
-    fields = ['category', 'title', 'comment', 'image1', 'image2']
+        model = PhotoPost
+        fields = ['category', 'title', 'comment', 'image1', 'image2']
     
