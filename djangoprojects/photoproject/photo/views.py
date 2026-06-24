@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from django.views.generic import CreateView
 
@@ -12,11 +12,14 @@ from django.utils.decorators import method_decorator
 
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-class IndexView(TemplateView):
-    '''トップページビュー
+from .models import PhotoPost
+
+class IndexView(ListView):
+    '''トップページのビュー
     '''
     template_name = 'index.html'
+
+    queryset = PhotoPost.objects.order_by('posted_at')
 
 @method_decorator(login_required, name='dispatch')
 class CreatePhotoView(CreateView):
@@ -56,7 +59,7 @@ class CreatePhotoView(CreateView):
 
         postdata.save()
 
-        return super().form_invalid(form)
+        return super().form_valid(form)
 
 class PostSuccessView(TemplateView):
     template_name='post_success.html'
