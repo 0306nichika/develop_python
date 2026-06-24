@@ -57,4 +57,8 @@ class CreatePhotoView(CreateView):
         postdata.save()
 
         return super().form_invalid(form)
+
+class PostSuccessView(TemplateView):
+    template_name='post_success.html'
+    
         
