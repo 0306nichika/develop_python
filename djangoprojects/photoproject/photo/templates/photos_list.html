@@ -31,10 +31,22 @@
               </div>
 
               <div>
-                <button class="btn btn-sm btn-outline-danger"
+                
+                {% if user.is_authenticated %}
+                  <button class="btn btn-sm btn-outline-danger"
+                          onclick="likePost('{{ record.id }}')">
+                    ❤️
+                  </button>
+                {% else %}
+                  <a href="{% url 'accounts:login' %}" class="btn btn-sm btn-outline-secondary">
+                    ログインしていいね
+                  </a>
+                {% endif %}
+
+                <!--<button class="btn btn-sm btn-outline-danger"
                         onclick="likePost('{{ record.id }}')">
                   ❤️
-                </button>
+                </button>-->
                 <span id="like-count-{{ record.id }}">0</span>
               </div>
 
