@@ -90,7 +90,7 @@ class CategoryView(ListView):
 class PhotoDeleteView(DeleteView):
     model=PhotoPost
     template_name='photo_delete.html'
-    success_url=reverse_lazy('photo:mypage')
+    success_url=reverse_lazy('photo:index')
 FILE = "data/likes.json"
 
 @csrf_exempt
