@@ -110,7 +110,7 @@ def like(request):
         if post_id not in likes:
             likes[post_id] = []
             
-        # 10%の確率で失敗
+        # 5%の確率で失敗
         if random.random() < 0.05:
             return JsonResponse({
                 "likeCount": len(likes[post_id]),
