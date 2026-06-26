@@ -4,6 +4,7 @@
 <!--言語設定をenからjaに変更-->
 <html lang="ja">
   <head>
+    <link rel="icon" href="{% static 'img/lostlife.png' %}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -54,7 +55,7 @@
           <ul class="list-unstyled">
             <!--ナビゲーションメニュー-->
             {% if user.is_authenticated %}
-            <li><a href="#" class="text-white">マイページ</a></li>
+            <li><a href="{% url 'photo:mypage' %}" class="text-white">マイページ</a></li>
             <li><a href="{% url 'accounts:logout' %}" class="text-white">ログアウト</a></li>
             <li><a href="{% url 'accounts:password_reset'%}" class="text-white">パスワードのリセット</a></li>
             <li><a href="mailto:admin@example.com" class="text-white">Email me</a></li>
@@ -71,8 +72,10 @@
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
       <a href="{% url 'photo:index' %}" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Photo Gallary</strong>
+        <img src="{% static 'img/lostlife.png' %}" class="footer-icon"width="5%"height="5%">
+        <!--<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>-->
+        <strong>～Lost Life～
+        </strong>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -92,14 +95,28 @@
     <p class="float-end mb-1">
       <a href="#">Back to top</a>
     </p><!--フッターのテキストを任意のものに置き換え-->
-    <p id="message"></p>
+    <!--バグの箇所-->
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+    <p id="message" style="font-size: 40px; color: red; text-align: center; font-weight: bold; animation: fadeIn 1.5s ease-in-out;"></p>
     <script>
       const now = new Date();
       
       const hour = now.getHours();
 
       if (hour >= 15) {
-      document.getElementById("message").textContent = "Are you free? Go work!";
+      document.getElementById("message").textContent = "This is Bug. Report Please. Are you free? Go work!";
       }
 
     </script>
@@ -110,11 +127,11 @@
 <div class="d-flex justify-content-end align-items-center gap-3">
 
   <a href="https://www.instagram.com/">
-    <img src="{% static 'img/insta.png' %}" class="footer-icon" width="215px" height="215px">
+    <img src="{% static 'img/insta.png' %}" class="footer-icon" width="60px" height="60px">
   </a>
 
   <a href="https://x.com/">
-    <img src="{% static 'img/x.png' %}" class="footer-icon">
+    <img src="{% static 'img/x.png' %}" class="footer-icon" width="200px"height="100px">
   </a>
 
 </div>

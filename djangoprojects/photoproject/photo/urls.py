@@ -20,5 +20,6 @@ urlpatterns = [
     path('like/', views.like, name='like'),
     path('photo/<int:pk>/', views.PhotoDetailView.as_view(), name='photo_detail'),
     path('photo/<int:pk>/delete', views.PhotoDeleteView.as_view(), name='photo_delete'),
+    path('mypage/',views.MypageView.as_view(),name='mypage')
 
 ]

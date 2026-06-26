@@ -90,8 +90,18 @@ class CategoryView(ListView):
 class PhotoDeleteView(DeleteView):
     model=PhotoPost
     template_name='photo_delete.html'
-    success_url=reverse_lazy('photo:mypage')
+    success_url=reverse_lazy('photo:index')
 FILE = "data/likes.json"
+
+class MypageView(ListView):
+    template_name='mypage.html'
+    paginate_by=9
+    
+    def get_queryset(self):
+        queryset =PhotoPost.objects.filter(
+            user=self.request.user
+        ).order_by('-posted_at')
+        return queryset
 
 @csrf_exempt
 def like(request):
@@ -110,8 +120,8 @@ def like(request):
         if post_id not in likes:
             likes[post_id] = []
             
-        # 10%の確率で失敗
-        if random.random() < 0.1:
+        # 5%の確率で失敗
+        if random.random() < 0.05:
             return JsonResponse({
                 "likeCount": len(likes[post_id]),
                 "status": "fail"
