@@ -27,6 +27,21 @@ class IndexView(ListView):
     '''
     template_name = 'index.html'
     queryset = PhotoPost.objects.order_by('-posted_at')
+    
+    def get_queryset(self):
+            queryset = PhotoPost.objects.order_by('-posted_at')
+
+            try:
+                with open("data/likes.json") as f:
+                    likes = json.load(f)
+            except:
+                likes = {}
+
+            for obj in queryset:
+                obj.like_count = len(likes.get(str(obj.id), []))
+
+            return queryset
+
 
 
 @method_decorator(login_required, name='dispatch')
@@ -108,7 +123,7 @@ def like(request):
     if request.method == "POST":
         data = json.loads(request.body)
 
-        post_id = data["postId"]
+        post_id = str(data["postId"])
         user_id = data["userId"]
 
         try:

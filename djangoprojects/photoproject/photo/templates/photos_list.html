@@ -1,3 +1,6 @@
+<script>
+  const USER_ID = "{% if user.is_authenticated %}{{ user.id }}{% else %}anonymous{% endif %}";
+</script>
 <div class="album py-5 bg-light">
   <div class="container">
 
@@ -52,7 +55,7 @@
                         onclick="likePost('{{ record.id }}')">
                   ❤️
                 </button>-->
-                <span id="like-count-{{ record.id }}">0</span>
+                <span id="like-count-{{ record.id }}">{{ record.like_count|default:0 }}</span>
               </div>
 
             </div>

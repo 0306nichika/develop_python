@@ -1,6 +1,6 @@
 
 function likePost(postId) {
-  const userId = localStorage.getItem("userId") || "user1";
+  const userId = USER_ID;
 
   fetch("/like/", {
     method: "POST",
@@ -13,8 +13,17 @@ function likePost(postId) {
     })
   })
   .then(res => res.json())
-  .then(data => {
-    document.getElementById("like-count-" + postId).innerText = data.likeCount;
-  });
+  
+.then(data => {
+
+  // ★ここを追加した
+  if (data.status === "fail") {
+    return;
+  }
+
+  //  成功のときだけ更新
+  document.getElementById("like-count-" + postId).innerText = data.likeCount;
+});
+
 }
 
