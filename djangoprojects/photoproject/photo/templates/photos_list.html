@@ -10,10 +10,11 @@
           <img src="{{ record.image1.url }}"
                class="card-img-top"
                style="width:100%; height:225px; object-fit:cover;">
+          {% if object.image2 %}
           <img src="{{ record.image2.url }}"
                class="card-img-top"
                style="width:100%; height:225px; object-fit:cover;">
-
+          {% endif %}
 
           <div class="card-body">
 
