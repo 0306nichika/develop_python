@@ -129,7 +129,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 AUTH_USER_MODEL = 'accounts.customUser'
 
 #メール送信のためのクラス設定
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackends'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 #メールサーバーへの接続設定
 DEFAULT_FROM_EMAIL = 'xxxxxxx@gmail.com' 
