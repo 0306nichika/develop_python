@@ -55,7 +55,7 @@
           <ul class="list-unstyled">
             <!--ナビゲーションメニュー-->
             {% if user.is_authenticated %}
-            <li><a href="#" class="text-white">マイページ</a></li>
+            <li><a href="{% url 'photo:mypage' %}" class="text-white">マイページ</a></li>
             <li><a href="{% url 'accounts:logout' %}" class="text-white">ログアウト</a></li>
             <li><a href="{% url 'accounts:password_reset'%}" class="text-white">パスワードのリセット</a></li>
             <li><a href="mailto:admin@example.com" class="text-white">Email me</a></li>

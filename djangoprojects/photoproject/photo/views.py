@@ -93,6 +93,16 @@ class PhotoDeleteView(DeleteView):
     success_url=reverse_lazy('photo:index')
 FILE = "data/likes.json"
 
+class MypageView(ListView):
+    template_name='mypage.html'
+    paginate_by=9
+    
+    def get_queryset(self):
+        queryset =PhotoPost.objects.filter(
+            user=self.request.user
+        ).order_by('-posted_at')
+        return queryset
+
 @csrf_exempt
 def like(request):
     if request.method == "POST":
